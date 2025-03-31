@@ -136,13 +136,16 @@ def lexetAritmetico(texto):
         tokens.append((lexema, tipos_token[estado]))    
     return tokens
 
-# Ejemplo de uso
-if __name__ == "__main__":
-    # Este codigo se ejecutara solo si el archivo se ejecuta directamente
-    texto_ejemplo = "b=7\na = 32.4 *(-8.6 - b)/       6.1E-8\nd = a ^ b // Esto es un comentario"
-    print("\nEjemplo:")
-    tokens = lexetAritmetico(texto_ejemplo)
-    print("\nToken\t\tTipo")
-    print("-" * 30)
-    for token, tipo in tokens:
-        print(f"{token}\t\t{tipo}")
+# Leer expresiones desde el archivo
+with open("expresiones.txt", "r") as file:
+    contenido = file.read()
+
+# Procesar el contenido
+tokens = lexetAritmetico(contenido)
+
+# Imprimir resultados
+print("\nAnálisis léxico de expresiones aritméticas")
+print("\nToken\t\tTipo")
+print("-" * 30)
+for token, tipo in tokens:
+    print(f"{token}\t\t{tipo}")
