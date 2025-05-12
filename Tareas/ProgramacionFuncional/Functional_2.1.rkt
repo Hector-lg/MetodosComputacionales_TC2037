@@ -118,7 +118,7 @@
 (duplicate '(1 2 3)) ; => '(1 1 2 2 3 3)
 
 
-; La funcion pow toma dos enteros a y b como entrada y devuelve a elevado a la potencia b.
+;7. La funcion pow toma dos enteros a y b como entrada y devuelve a elevado a la potencia b.
 ;Ejemplos:
 ; (pow 2 3)
 ; => 8
@@ -132,3 +132,26 @@
 
 (pow 2 3) ; => 8
 (pow 5 0) ; => 1
+
+;8. La funcion fibonacci toma un entero n como entrada y devuelve el n- ́esimo numero de Fibonacci.
+; se define matematicamente como:
+;F(0) = 0
+;F(1) = 1
+;F(n) = F(n − 1) + F(n − 2) Si n > 1
+;Ejemplos:
+;(fib 0)
+;=> 0
+;(fib 1)
+;=> 1
+;(map fib (range 10))
+;=> '(0 1 1 2 3 5 8 13 21 34)
+(define ( fib n)
+(if (= n 0)
+        0
+    (if (= n 1)
+        1
+    (+ (fib (- n 1)) (fib (- n 2))))))
+
+(fib 0) ; => 0
+(fib 1) ; => 1
+(map fib (range 10)) ; => '(0 1 1 2 3 5 8 13 21 34)
